@@ -36,7 +36,7 @@ def mvnBuild():
 
 
 def main():
-    # mvnBuild()
+    mvnBuild()
     jfrogUpload()
 
 
