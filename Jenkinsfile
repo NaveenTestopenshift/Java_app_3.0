@@ -20,7 +20,7 @@ pipeline{
             steps{
             gitCheckout(
                 branch: "main",
-                url: "https://github.com/praveen1994dec/Java_app_3.0.git"
+                url: "https://github.com/NaveenTestopenshift/Java_app_3.0.git"
             )
             }
         }
@@ -71,6 +71,14 @@ pipeline{
                    
                    mvnBuild()
                }
+            }
+        }
+        stage ('Pushing Jar to Jfrog : python'){
+          when { expression {  params.action == 'create' } }
+          steps{
+            script{
+                jfrogPush()
+                }
             }
         }
         stage('Docker Image Build'){
